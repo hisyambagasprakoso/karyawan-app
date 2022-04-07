@@ -10,9 +10,10 @@ import javax.validation.constraints.Size;
 import java.util.ArrayList;
 import java.util.List;
 
+
 /**
- * @author : Otorus
- * @since : 1/4/18
+ * @author : hisam
+ * @since : 4/4/22
  */
 @Data
 @ToString(exclude = "listAlamat")
@@ -44,5 +45,22 @@ public class Karyawan {
             cascade = CascadeType.REFRESH,
             orphanRemoval = true)
     private List<Alamat> listAlamat = new ArrayList<>();
+
+public Object getNama() {
+        return nama;
+}
+
+public Object getKeterangan() {
+        return keterangan;
+}
+
+// public void setNama(String string) {
+// }
+
+// public void setKeterangan(String string) {
+// }
+
+// public void setId(String string) {
+// }
 
 }

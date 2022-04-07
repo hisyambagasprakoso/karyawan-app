@@ -24,7 +24,7 @@ public class CustomErrorVewResolver implements ErrorViewResolver {
                                          Map<String, Object> model) {
         Integer statusCode = (Integer) request.getAttribute("javax.servlet.error.status_code");
         Throwable throwable = (Throwable) request.getAttribute("javax.servlet.error.exception");
-        String exceptionMessage = getExceptionMessage(throwable, statusCode);
+        getExceptionMessage(throwable, statusCode);
 
         ModelAndView modelv = new ModelAndView("error");
         modelv.addObject("status", request.getAttribute("javax.servlet.error.status_code"));

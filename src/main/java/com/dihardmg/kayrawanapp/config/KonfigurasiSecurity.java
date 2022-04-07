@@ -14,7 +14,7 @@ import org.springframework.security.core.session.SessionRegistryImpl;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.jdbc.JdbcDaoImpl;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
-import org.springframework.security.crypto.password.PasswordEncoder;
+// import org.springframework.security.crypto.password.PasswordEncoder;
 
 import javax.sql.DataSource;
 
@@ -30,7 +30,7 @@ public class KonfigurasiSecurity extends WebSecurityConfigurerAdapter {
     private DataSource dataSource;
 
     @Autowired
-    private PasswordEncoder passwordEncoder;
+    // private PasswordEncoder passwordEncoder;
 
     private static final String SQL_ROLE
             = "select u.username, p.permission_value as authority "

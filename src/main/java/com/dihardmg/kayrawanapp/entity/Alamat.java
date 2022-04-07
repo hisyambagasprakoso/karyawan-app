@@ -41,4 +41,8 @@ public class Alamat {
     @JoinColumn(name = "id_karyawan")
     private Karyawan karyawan;
 
+    public Object getNama() {
+        return alamat;
+    }
+
 }
