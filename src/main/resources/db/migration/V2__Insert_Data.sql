@@ -20,7 +20,7 @@ INSERT INTO c_security_role_permission (id_role, id_permission) VALUES
 
 
 INSERT INTO c_security_user (id, active, username, id_role) VALUES
-('admin', true,'admin', 'ADMINISTRATOR');
+('admin', 1,'admin', 'ADMINISTRATOR');
 
 INSERT INTO c_security_user_password (id_user, password) VALUES
 ('admin', '$2a$10$wT/obdcvI07jSor8roN3NeuWhEdlarvunJ14ZOAFdo1g/lZ1uHbGe');

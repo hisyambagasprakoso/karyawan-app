@@ -18,7 +18,7 @@ CREATE TABLE c_security_role_permission (
 
 CREATE TABLE c_security_user (
     id character varying(255) NOT NULL,
-    active boolean NOT NULL,
+    active bit NOT NULL,
     username character varying(255) NOT NULL,
     id_role character varying(255) NOT NULL
 );

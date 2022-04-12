@@ -1,4 +1,4 @@
-package com.dihardmg.kayrawanapp.entity;
+package com.dihardmg.kayrawanapp.Models;
 
 import lombok.*;
 import org.hibernate.annotations.GenericGenerator;
@@ -10,16 +10,15 @@ import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
 /**
- * @author : Otorus
- * @since : 1/10/18
+ * @author : hisam
+ * @since : 4/4/22
  */
 @Data
 @Entity
-@Table(name = "alamat",
-        indexes = {
-                @Index(columnList = "nama", name = "nama_alamat_idx"),
-                @Index(columnList = "alamat", name = "alamat_alamat_idx")
-        })
+@Table(name = "alamat", indexes = {
+        @Index(columnList = "nama", name = "nama_alamat_idx"),
+        @Index(columnList = "alamat", name = "alamat_alamat_idx")
+})
 public class Alamat {
     @Id
     @GeneratedValue(generator = "uuid")
@@ -41,8 +40,29 @@ public class Alamat {
     @JoinColumn(name = "id_karyawan")
     private Karyawan karyawan;
 
-    public Object getNama() {
+    public String getNama() {
+        return nama;
+    }
+
+    public String getAlamat() {
         return alamat;
+    }
+
+    public String getId() {
+        return id;
+    }
+
+    public void setNama(String nama) {
+        this.nama = nama;
+
+    }
+
+    public void setAlamat(String alamat) {
+        this.alamat = alamat;
+    }
+
+    public void setId(String id) {
+        this.id = id;
     }
 
 }

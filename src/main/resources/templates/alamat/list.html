@@ -50,8 +50,8 @@
 
                             <tr>
                                 <th>No</th>
-                                <th><a class="fa fa-fw fa-sort"><a class="sorted" sd:pagination-sort="nama">Kategori
-                                    Nama</th>
+                                <!-- <th><a class="fa fa-fw fa-sort"><a class="sorted" sd:pagination-sort="nama">Kategori
+                                    Nama</th> -->
                                 <th><a class="fa fa-fw fa-sort"><a class="sorted" sd:pagination-sort="nama">Nama</th>
                                 <th><a class="fa fa-fw fa-sort"><a class="sorted" sd:pagination-sort="alamat">Alamat
                                 </th>
@@ -62,7 +62,7 @@
                             <tbody>
                             <tr th:each="alamat,iter : ${data}">
                                 <td th:text="${iter.count}">1</td>
-                                <td th:text="${alamat.karyawan.nama}">jenis kegiatan 1</td>
+                                <!-- <td th:text="${alamat.karyawan.nama}">jenis kegiatan 1</td> -->
                                 <td th:text="${alamat.nama}">keterangan jenis kegiatan 1</td>
                                 <td th:text="${alamat.alamat}">keterangan jenis kegiatan 1</td>
 

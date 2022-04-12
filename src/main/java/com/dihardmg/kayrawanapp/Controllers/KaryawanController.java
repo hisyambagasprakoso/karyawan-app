@@ -1,7 +1,8 @@
-package com.dihardmg.kayrawanapp.controller;
+package com.dihardmg.kayrawanapp.Controllers;
 
+import com.dihardmg.kayrawanapp.Models.Karyawan;
 import com.dihardmg.kayrawanapp.dao.KaryawanDao;
-import com.dihardmg.kayrawanapp.entity.Karyawan;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.data.domain.Pageable;
@@ -25,32 +26,41 @@ public class KaryawanController {
     @Autowired
     private KaryawanDao karyawanDao;
 
-
     @GetMapping("/karyawan/list")
-    public ModelMap karyawan(@PageableDefault(size = 5) Pageable pageable, @RequestParam(name = "value", required = false) String value, Model model){
+    public ModelMap karyawan(@PageableDefault(size = 5) Pageable pageable,
+            @RequestParam(name = "value", required = false) String value, Model model) {
         if (value != null) {
             model.addAttribute("key", value);
-            return new ModelMap().addAttribute("karyawan", karyawanDao.findByNamaContainingIgnoreCase(value, pageable));
+            return new ModelMap().addAttribute("karyawan",
+                    karyawanDao.findByNamaContainingIgnoreCase(value, pageable));
         } else {
-            return new ModelMap().addAttribute("karyawan", karyawanDao.findAll(pageable));
+            return new ModelMap().addAttribute("karyawan",
+                    karyawanDao.findAll(pageable));
         }
     }
 
+    // @GetMapping("/karyawan/list")
+    // public String karyawan() {
+    // return "karyawan/list";
+    // }
 
+    // @GetMapping("/karyawan/list")
+    // public ModelMap karyawan(@RequestParam(name = "value", required = false)
+    // Karyawan karyawan ) {
+    // return new ModelMap("karyawan", karyawan);
+    // }
 
     @GetMapping("/karyawan/form")
-    public ModelMap tampilkanForm(@RequestParam(value = "id", required = false) Karyawan karyawan ) {
+    public ModelMap tampilkanForm(@RequestParam(value = "id", required = false) Karyawan karyawan) {
         if (karyawan == null) {
             karyawan = new Karyawan();
         }
         return new ModelMap("karyawan", karyawan);
     }
 
-
-
-
     @PostMapping("/karyawan/form")
-    public String simpan(@Valid @ModelAttribute("karyawan") Karyawan karyawan , BindingResult errors, SessionStatus status) {
+    public String simpan(@Valid @ModelAttribute("karyawan") Karyawan karyawan, BindingResult errors,
+            SessionStatus status) {
         if (errors.hasErrors()) {
             return "karyawan/form";
         }
@@ -59,20 +69,14 @@ public class KaryawanController {
         return "redirect:/karyawan/list";
     }
 
-
-
-
     @GetMapping("/karyawan/delete")
-    public ModelMap deleteConfirm(@RequestParam(value = "id", required = true) Karyawan karyawan ) {
+    public ModelMap deleteConfirm(@RequestParam(value = "id", required = true) Karyawan karyawan) {
         return new ModelMap("karyawan", karyawan);
     }
 
-
-
-
     @PostMapping("/karyawan/delete")
-    public Object delete(@ModelAttribute Karyawan karyawan , SessionStatus status) {
-        try{
+    public Object delete(@ModelAttribute Karyawan karyawan, SessionStatus status) {
+        try {
             karyawanDao.delete(karyawan);
         } catch (DataIntegrityViolationException exception) {
             status.setComplete();
@@ -80,11 +84,9 @@ public class KaryawanController {
                     .addObject("entityId", karyawan.getNama())
                     .addObject("entityName", "Karyawan")
                     .addObject("errorCause", exception.getRootCause().getMessage())
-                    .addObject("backLink","/karyawan/list");
+                    .addObject("backLink", "/karyawan/list");
         }
         status.setComplete();
         return "redirect:/karyawan/list";
     }
 }
-
-

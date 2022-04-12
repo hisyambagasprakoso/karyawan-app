@@ -1,4 +1,4 @@
-package com.dihardmg.kayrawanapp.controller;
+package com.dihardmg.kayrawanapp.Controllers;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 public class LoginContrller {
 
     @GetMapping("/login")
-    public String getLogin(){
+    public String getLogin() {
         return "login";
     }
 }

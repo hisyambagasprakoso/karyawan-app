@@ -11,10 +11,13 @@
         <li class="active">Daftar Karyawan</li>
     </ol>
 </div>
+
+
 <div layout:fragment="content">
     <div class="row">
         <div class="col-xs-12">
-            <div class="box box-primary">
+             <div class="box box-primary">
+
                 <div class="box-header with-border">
                     <a class="box-title btn btn-primary" th:href="@{/karyawan/form}">Tambah Karyawan</a>
 
@@ -38,7 +41,7 @@
 
                 <!-- /.box-header -->
                 <div class="box-body">
-                    Show <span sd:page-size-selector="javascript"></span> entries
+                     <span sd:page-size-selector="javascript"></span> 
 
                     <div class="table-responsive">
                         <table class="table table-bordered table-hover">
@@ -57,16 +60,17 @@
                                 <td th:text="${st.nama}">Jabatan</td>
                                 <td th:text="${st.keterangan}">Keterangan</td>
                                 <td>
-                                    <a href="#" class="btn btn-default" th:href="@{/karyawan/form(id=${st.id})}"
+                                    <a class="btn btn-default" th:href="@{/karyawan/form(id=${st.id})}"
                                        title="Edit Data"><span class="glyphicon glyphicon-edit"></span></a>
-                                    <a href="#" class="btn btn-default" th:href="@{/karyawan/delete(id=${st.id})}"
+                                       
+                                    <a class="btn btn-default" th:href="@{/karyawan/delete(id=${st.id})}"
                                        title="Delete Data"><span class="glyphicon glyphicon-trash"></span></a>
                                 </td>
                             </tr>
                             <tr th:if="${#lists.isEmpty(karyawan.content)}">
                                 <td colspan="13" class="text-center">Data karyawan tidak ditemukan</td>
                             </tr>
-                            </tbody>
+                            </tbody> 
                         </table>
                     </div>
                 </div>
@@ -77,7 +81,7 @@
                     <div sd:pagination-summary="">info</div>
                     <div class="text-center">
                         <nav>
-                            <ul class="pagination" sd:pagination="full">
+                            <ul class="pagination" sd:pagination="full"> -->
                                 <!-- Pagination created by SpringDataDialect, this content is just for mockup -->
                                 <li class="disabled"><a href="#" aria-label="Previous"><span
                                         aria-hidden="true">&laquo;</span></a></li>
@@ -87,9 +91,9 @@
                     </div>
                 </div>
 
-            </div>
+            </div> 
         </div>
-    </div>
+     </div> 
 </div>
 </body>
 </html>

@@ -1,7 +1,8 @@
 package com.dihardmg.kayrawanapp.unitTest;
 
+import com.dihardmg.kayrawanapp.Models.Karyawan;
 import com.dihardmg.kayrawanapp.dao.KaryawanDao;
-import com.dihardmg.kayrawanapp.entity.Karyawan;
+
 import org.junit.After;
 import org.junit.Assert;
 import org.junit.Test;
@@ -15,8 +16,6 @@ import javax.sql.DataSource;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.Set;
-
 
 /**
  * @author : Otorus
@@ -24,10 +23,7 @@ import java.util.Set;
  */
 @RunWith(SpringRunner.class)
 @SpringBootTest
-@Sql(
-        executionPhase = Sql.ExecutionPhase.BEFORE_TEST_METHOD,
-        scripts = "/data/karyawan.sql"
-)
+@Sql(executionPhase = Sql.ExecutionPhase.BEFORE_TEST_METHOD, scripts = "/data/karyawan.sql")
 public class karyawanTest {
 
     @Autowired
@@ -36,7 +32,6 @@ public class karyawanTest {
     @Autowired
     private DataSource dataSource;
 
-
     @After
     public void hapusData() throws Exception {
         String sql = "delete from karyawan where id = '4'";
@@ -44,7 +39,6 @@ public class karyawanTest {
             c.createStatement().executeUpdate(sql);
         }
     }
-
 
     @Test
     public void testInsert() throws SQLException {
@@ -67,6 +61,19 @@ public class karyawanTest {
             Assert.assertEquals(1L, jumlahRow.longValue());
         }
 
+    }
+
+    public karyawanTest(KaryawanDao karyawanDao, DataSource dataSource) {
+        this.karyawanDao = karyawanDao;
+        this.dataSource = dataSource;
+    }
+
+    public karyawanTest(KaryawanDao karyawanDao) {
+        this.karyawanDao = karyawanDao;
+    }
+
+    public void karyawanTest2(KaryawanDao karyawanDao) {
+        this.karyawanDao = karyawanDao;
     }
 
     @Test

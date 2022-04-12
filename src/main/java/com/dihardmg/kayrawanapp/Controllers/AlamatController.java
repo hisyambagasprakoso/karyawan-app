@@ -1,8 +1,9 @@
-package com.dihardmg.kayrawanapp.controller;
+package com.dihardmg.kayrawanapp.Controllers;
 
+import com.dihardmg.kayrawanapp.Models.Alamat;
 import com.dihardmg.kayrawanapp.dao.AlamatDao;
 import com.dihardmg.kayrawanapp.dao.KaryawanDao;
-import com.dihardmg.kayrawanapp.entity.Alamat;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.data.domain.Pageable;
@@ -30,10 +31,9 @@ public class AlamatController {
     @Autowired
     private AlamatDao alamatDao;
 
-
     @RequestMapping("/alamat/list")
     public String alamat(Model model, @PageableDefault(size = 5) Pageable pageable,
-                         @RequestParam(name = "value", required = false) String value) {
+            @RequestParam(name = "value", required = false) String value) {
         if (value != null) {
             model.addAttribute("key", value);
             model.addAttribute("data", alamatDao.findByNamaContainingIgnoreCase(value, pageable));
@@ -43,7 +43,6 @@ public class AlamatController {
         return "alamat/list";
 
     }
-
 
     @GetMapping("/alamat/form")
     public String tampilkanForms(@RequestParam(value = "id", required = false) Alamat alamat, Model m) {
@@ -55,7 +54,6 @@ public class AlamatController {
         return "alamat/form";
     }
 
-
     @PostMapping("/alamat/form")
     public String simpan(@ModelAttribute @Valid Alamat alamat, BindingResult errors, SessionStatus status) {
         if (errors.hasErrors()) {
@@ -66,14 +64,10 @@ public class AlamatController {
         return "redirect:/alamat/list";
     }
 
-
-
     @GetMapping("/alamat/delete")
     public ModelMap deleteConfirm(@RequestParam(value = "id", required = true) Alamat alamat) {
         return new ModelMap("alamat", alamat);
     }
-
-
 
     @PostMapping("/alamat/delete")
     public Object delete(@ModelAttribute Alamat alamat, SessionStatus status) {
