@@ -1,6 +1,6 @@
-package com.dihardmg.kayrawanapp.dao;
+package com.hisamprakoso.kayrawanapp.dao;
 
-import com.dihardmg.kayrawanapp.Models.Karyawan;
+import com.hisamprakoso.kayrawanapp.Models.Karyawan;
 
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;

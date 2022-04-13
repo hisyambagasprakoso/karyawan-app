@@ -1,8 +1,4 @@
-package com.dihardmg.kayrawanapp.Controllers;
-
-import com.dihardmg.kayrawanapp.Models.Alamat;
-import com.dihardmg.kayrawanapp.dao.AlamatDao;
-import com.dihardmg.kayrawanapp.dao.KaryawanDao;
+package com.hisamprakoso.kayrawanapp.Controllers;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataIntegrityViolationException;
@@ -17,6 +13,10 @@ import org.springframework.web.bind.support.SessionStatus;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.validation.Valid;
+
+import com.hisamprakoso.kayrawanapp.Models.Alamat;
+import com.hisamprakoso.kayrawanapp.dao.AlamatDao;
+import com.hisamprakoso.kayrawanapp.dao.KaryawanDao;
 
 /**
  * @author : hisam
@@ -37,8 +37,11 @@ public class AlamatController {
         if (value != null) {
             model.addAttribute("key", value);
             model.addAttribute("data", alamatDao.findByNamaContainingIgnoreCase(value, pageable));
+            // model.addAttribute("karyawan",
+            // karyawanDao.findByNamaContainingIgnoreCase(value, pageable));
         } else {
             model.addAttribute("data", alamatDao.findAll(pageable));
+            // model.addAttribute("karyawan", karyawanDao.findAll());
         }
         return "alamat/list";
 
@@ -55,7 +58,7 @@ public class AlamatController {
     }
 
     @PostMapping("/alamat/form")
-    public String simpan(@ModelAttribute @Valid Alamat alamat, BindingResult errors, SessionStatus status) {
+    public String simpan(@Valid @ModelAttribute("alamat") Alamat alamat, BindingResult errors, SessionStatus status) {
         if (errors.hasErrors()) {
             return "alamat/form";
         }

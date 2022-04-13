@@ -1,26 +1,37 @@
 {
-    "configurations": [
-        {
-            "type": "java",
-            "name": "Spring Boot-KayrawanAppApplication<kayrawan-app>",
-            "request": "launch",
-            "cwd": "${workspaceFolder}",
-            "console": "internalConsole",
-            "mainClass": "com.hisam.kayrawanapp.KayrawanAppApplication",
-            "projectName": "kayrawan-app",
-            "args": "",
-            "envFile": "${workspaceFolder}/.env"
-        },
-        {
-            "type": "java",
-            "name": "Spring Boot-KayrawanAppApplication<kayrawan-app>",
-            "request": "launch",
-            "cwd": "${workspaceFolder}",
-            "console": "internalConsole",
-            "mainClass": "com.dihardmg.kayrawanapp.KayrawanAppApplication",
-            "projectName": "kayrawan-app",
-            "args": "",
-            "envFile": "${workspaceFolder}/.env"
-        }
-    ]
+  "configurations": [
+    {
+      "type": "java",
+      "name": "Spring Boot-KayrawanAppApplication<kayrawan-app>",
+      "request": "launch",
+      "cwd": "${workspaceFolder}",
+      "console": "internalConsole",
+      "mainClass": "com.hisam.kayrawanapp.KayrawanAppApplication",
+      "projectName": "kayrawan-app",
+      "args": "",
+      "envFile": "${workspaceFolder}/.env"
+    },
+    {
+      "type": "java",
+      "name": "Spring Boot-KayrawanAppApplication<kayrawan-app>",
+      "request": "launch",
+      "cwd": "${workspaceFolder}",
+      "console": "internalConsole",
+      "mainClass": "com.dihardmg.kayrawanapp.KayrawanAppApplication",
+      "projectName": "kayrawan-app",
+      "args": "",
+      "envFile": "${workspaceFolder}/.env"
+    },
+    {
+      "type": "java",
+      "name": "Spring Boot-KayrawanAppApplication<kayrawan-app>",
+      "request": "launch",
+      "cwd": "${workspaceFolder}",
+      "console": "internalConsole",
+      "mainClass": "com.hisamprakoso.kayrawanapp.KayrawanAppApplication",
+      "projectName": "kayrawan-app",
+      "args": "",
+      "envFile": "${workspaceFolder}/.env"
+    }
+  ]
 }

@@ -1,4 +1,4 @@
-package com.dihardmg.kayrawanapp.config;
+package com.hisamprakoso.kayrawanapp.config;
 
 import org.springframework.boot.autoconfigure.web.ErrorViewResolver;
 import org.springframework.context.annotation.Configuration;
@@ -21,7 +21,7 @@ public class CustomErrorVewResolver implements ErrorViewResolver {
 
     @Override
     public ModelAndView resolveErrorView(HttpServletRequest request, HttpStatus status,
-                                         Map<String, Object> model) {
+            Map<String, Object> model) {
         Integer statusCode = (Integer) request.getAttribute("javax.servlet.error.status_code");
         Throwable throwable = (Throwable) request.getAttribute("javax.servlet.error.exception");
         getExceptionMessage(throwable, statusCode);
@@ -30,7 +30,6 @@ public class CustomErrorVewResolver implements ErrorViewResolver {
         modelv.addObject("status", request.getAttribute("javax.servlet.error.status_code"));
         return modelv;
     }
-
 
     private String getExceptionMessage(Throwable throwable, Integer statusCode) {
         if (throwable != null) {
@@ -41,8 +40,7 @@ public class CustomErrorVewResolver implements ErrorViewResolver {
         return httpStatus.getReasonPhrase();
     }
 
-
-    @ExceptionHandler(value = {ConstraintViolationException.class})
+    @ExceptionHandler(value = { ConstraintViolationException.class })
     @ResponseStatus(value = HttpStatus.BAD_REQUEST)
     public String handleValidationFailure(ConstraintViolationException ex) {
 
@@ -55,5 +53,3 @@ public class CustomErrorVewResolver implements ErrorViewResolver {
         return messages.toString();
     }
 }
-
-

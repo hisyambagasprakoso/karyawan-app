@@ -1,4 +1,4 @@
-package com.dihardmg.kayrawanapp.config;
+package com.hisamprakoso.kayrawanapp.config;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
@@ -19,8 +19,8 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import javax.sql.DataSource;
 
 /**
- * @author : Otorus
- * @since : 1/4/18
+ * @author : hisam
+ * @since : 4/4/22
  */
 @Configuration
 @EnableWebSecurity
@@ -32,20 +32,17 @@ public class KonfigurasiSecurity extends WebSecurityConfigurerAdapter {
     @Autowired
     // private PasswordEncoder passwordEncoder;
 
-    private static final String SQL_ROLE
-            = "select u.username, p.permission_value as authority "
+    private static final String SQL_ROLE = "select u.username, p.permission_value as authority "
             + "from c_security_user u "
             + "inner join c_security_role r on u.id_role = r.id "
             + "inner join c_security_role_permission rp on rp.id_role = r.id "
             + "inner join c_security_permission p on rp.id_permission = p.id "
             + "where u.username = ?";
 
-    private static final String SQL_LOGIN
-            = "select u.username as username,p.password as password, active "
+    private static final String SQL_LOGIN = "select u.username as username,p.password as password, active "
             + "from c_security_user u "
             + "inner join c_security_user_password p on p.id_user = u.id "
             + "where username = ?";
-
 
     @Autowired
     public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception {
@@ -80,7 +77,6 @@ public class KonfigurasiSecurity extends WebSecurityConfigurerAdapter {
         return new SessionRegistryImpl();
     }
 
-
     @Override
     protected void configure(HttpSecurity http) throws Exception {
 
@@ -112,7 +108,6 @@ public class KonfigurasiSecurity extends WebSecurityConfigurerAdapter {
                 .antMatchers("/jenisDokumenPengajuan/**").hasAnyRole("MASTER_JENIS_DOKUMEN_PENGAJUAN")
 
                 .antMatchers("/pengajuan/**").hasAnyRole("PENGAJUAN")
-
 
                 .anyRequest().authenticated()
                 .and()

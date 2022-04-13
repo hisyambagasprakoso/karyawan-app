@@ -1,4 +1,4 @@
-package com.dihardmg.kayrawanapp.dao;
+package com.hisamprakoso.kayrawanapp.dao;
 
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -7,12 +7,12 @@ import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
-import com.dihardmg.kayrawanapp.Models.Alamat;
-import com.dihardmg.kayrawanapp.Models.Karyawan;
+import com.hisamprakoso.kayrawanapp.Models.Alamat;
+import com.hisamprakoso.kayrawanapp.Models.Karyawan;
 
 /**
- * @author : Otorus
- * @since : 1/10/18
+ * @author : hisam
+ * @since : 4/4/22
  */
 @Repository
 public interface AlamatDao extends PagingAndSortingRepository<Alamat, String> {

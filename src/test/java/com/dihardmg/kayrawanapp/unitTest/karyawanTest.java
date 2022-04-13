@@ -1,8 +1,5 @@
 package com.dihardmg.kayrawanapp.unitTest;
 
-import com.dihardmg.kayrawanapp.Models.Karyawan;
-import com.dihardmg.kayrawanapp.dao.KaryawanDao;
-
 import org.junit.After;
 import org.junit.Assert;
 import org.junit.Test;
@@ -13,6 +10,10 @@ import org.springframework.test.context.jdbc.Sql;
 import org.springframework.test.context.junit4.SpringRunner;
 
 import javax.sql.DataSource;
+
+import com.hisamprakoso.kayrawanapp.Models.Karyawan;
+import com.hisamprakoso.kayrawanapp.dao.KaryawanDao;
+
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;

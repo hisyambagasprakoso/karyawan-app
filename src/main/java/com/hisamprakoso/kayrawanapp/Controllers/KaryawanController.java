@@ -1,7 +1,4 @@
-package com.dihardmg.kayrawanapp.Controllers;
-
-import com.dihardmg.kayrawanapp.Models.Karyawan;
-import com.dihardmg.kayrawanapp.dao.KaryawanDao;
+package com.hisamprakoso.kayrawanapp.Controllers;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataIntegrityViolationException;
@@ -16,6 +13,9 @@ import org.springframework.web.bind.support.SessionStatus;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.validation.Valid;
+
+import com.hisamprakoso.kayrawanapp.Models.Karyawan;
+import com.hisamprakoso.kayrawanapp.dao.KaryawanDao;
 
 /**
  * @author : hisam

@@ -1,4 +1,4 @@
-package com.dihardmg.kayrawanapp.Models;
+package com.hisamprakoso.kayrawanapp.Models;
 
 import lombok.*;
 import org.hibernate.annotations.GenericGenerator;
@@ -52,6 +52,10 @@ public class Alamat {
         return id;
     }
 
+    public Karyawan getKaryawan() {
+        return karyawan;
+    }
+
     public void setNama(String nama) {
         this.nama = nama;
 
@@ -63,6 +67,10 @@ public class Alamat {
 
     public void setId(String id) {
         this.id = id;
+    }
+
+    public void setKaryawan(Karyawan karyawan) {
+        this.karyawan = karyawan;
     }
 
 }
