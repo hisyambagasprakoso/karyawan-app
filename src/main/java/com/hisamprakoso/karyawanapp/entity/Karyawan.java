@@ -1,4 +1,4 @@
-package com.hisamprakoso.kayrawanapp.Models;
+package com.hisamprakoso.karyawanapp.entity;
 
 import lombok.*;
 import org.hibernate.annotations.GenericGenerator;
@@ -41,29 +41,5 @@ public class Karyawan {
 
         @OneToMany(mappedBy = "karyawan", cascade = CascadeType.REFRESH, orphanRemoval = true)
         private List<Alamat> listAlamat = new ArrayList<>();
-
-        public Object getNama() {
-                return nama;
-        }
-
-        public Object getKeterangan() {
-                return keterangan;
-        }
-
-        public Object getId() {
-                return id;
-        }
-
-        public void setNama(String nama) {
-                this.nama = nama;
-        }
-
-        public void setKeterangan(String keterangan) {
-                this.keterangan = keterangan;
-        }
-
-        public void setId(String id) {
-                this.id = id;
-        }
 
 }

@@ -1,4 +1,4 @@
-package com.hisamprakoso.kayrawanapp.config;
+package com.hisamprakoso.karyawanapp.config;
 
 import org.springframework.boot.autoconfigure.web.ErrorViewResolver;
 import org.springframework.context.annotation.Configuration;

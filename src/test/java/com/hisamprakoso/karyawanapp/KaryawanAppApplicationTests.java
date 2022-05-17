@@ -1,4 +1,4 @@
-package com.dihardmg.kayrawanapp;
+package com.hisamprakoso.karyawanapp;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -7,7 +7,7 @@ import org.springframework.test.context.junit4.SpringRunner;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
-public class KayrawanAppApplicationTests {
+public class KaryawanAppApplicationTests {
 
 	@Test
 	public void contextLoads() {

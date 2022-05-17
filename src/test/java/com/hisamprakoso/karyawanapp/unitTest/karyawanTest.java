@@ -1,4 +1,4 @@
-package com.dihardmg.kayrawanapp.unitTest;
+package com.hisamprakoso.karyawanapp.unitTest;
 
 import org.junit.After;
 import org.junit.Assert;
@@ -11,8 +11,8 @@ import org.springframework.test.context.junit4.SpringRunner;
 
 import javax.sql.DataSource;
 
-import com.hisamprakoso.kayrawanapp.Models.Karyawan;
-import com.hisamprakoso.kayrawanapp.dao.KaryawanDao;
+import com.hisamprakoso.karyawanapp.entity.Karyawan;
+import com.hisamprakoso.karyawanapp.repository.KaryawanDao;
 
 import java.sql.Connection;
 import java.sql.ResultSet;

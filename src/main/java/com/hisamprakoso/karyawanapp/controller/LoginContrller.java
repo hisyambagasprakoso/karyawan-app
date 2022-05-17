@@ -1,4 +1,4 @@
-package com.hisamprakoso.kayrawanapp.Controllers;
+package com.hisamprakoso.karyawanapp.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -8,10 +8,10 @@ import org.springframework.web.bind.annotation.GetMapping;
  * @since : 1/4/18
  */
 @Controller
-public class HomeController {
+public class LoginContrller {
 
-    @GetMapping("/")
-    public String homePage() {
-        return "home";
+    @GetMapping("/login")
+    public String getLogin() {
+        return "login";
     }
 }

@@ -1,4 +1,4 @@
-package com.hisamprakoso.kayrawanapp.dao;
+package com.hisamprakoso.karyawanapp.repository;
 
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -7,8 +7,8 @@ import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
-import com.hisamprakoso.kayrawanapp.Models.Alamat;
-import com.hisamprakoso.kayrawanapp.Models.Karyawan;
+import com.hisamprakoso.karyawanapp.entity.Alamat;
+import com.hisamprakoso.karyawanapp.entity.Karyawan;
 
 /**
  * @author : hisam

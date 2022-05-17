@@ -164,8 +164,7 @@
                     </a>
 
                     <ul class="treeview-menu">
-                        <li><a th:href="@{/kegiatan/kbm/list}">Halo</a></li>
-
+                        <li sec:authorize="hasRole('KEGIATAN')"><a th:href="@{/meeting/list}">Meeting</a></li>
                     </ul>
                 </li>
 

@@ -32,6 +32,28 @@
       "projectName": "kayrawan-app",
       "args": "",
       "envFile": "${workspaceFolder}/.env"
+    },
+    {
+      "type": "java",
+      "name": "Spring Boot-KayrawanAppApplication<kayrawan-app>",
+      "request": "launch",
+      "cwd": "${workspaceFolder}",
+      "console": "internalConsole",
+      "mainClass": "com.hisamprakoso.karyawanapp.KayrawanAppApplication",
+      "projectName": "kayrawan-app",
+      "args": "",
+      "envFile": "${workspaceFolder}/.env"
+    },
+    {
+      "type": "java",
+      "name": "Spring Boot-KaryawanAppApplication<kayrawan-app>",
+      "request": "launch",
+      "cwd": "${workspaceFolder}",
+      "console": "internalConsole",
+      "mainClass": "com.hisamprakoso.karyawanapp.KaryawanAppApplication",
+      "projectName": "kayrawan-app",
+      "args": "",
+      "envFile": "${workspaceFolder}/.env"
     }
   ]
 }

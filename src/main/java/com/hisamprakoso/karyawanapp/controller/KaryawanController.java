@@ -1,4 +1,4 @@
-package com.hisamprakoso.kayrawanapp.Controllers;
+package com.hisamprakoso.karyawanapp.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataIntegrityViolationException;
@@ -14,8 +14,8 @@ import org.springframework.web.servlet.ModelAndView;
 
 import javax.validation.Valid;
 
-import com.hisamprakoso.kayrawanapp.Models.Karyawan;
-import com.hisamprakoso.kayrawanapp.dao.KaryawanDao;
+import com.hisamprakoso.karyawanapp.entity.Karyawan;
+import com.hisamprakoso.karyawanapp.repository.KaryawanDao;
 
 /**
  * @author : hisam
@@ -38,17 +38,6 @@ public class KaryawanController {
                     karyawanDao.findAll(pageable));
         }
     }
-
-    // @GetMapping("/karyawan/list")
-    // public String karyawan() {
-    // return "karyawan/list";
-    // }
-
-    // @GetMapping("/karyawan/list")
-    // public ModelMap karyawan(@RequestParam(name = "value", required = false)
-    // Karyawan karyawan ) {
-    // return new ModelMap("karyawan", karyawan);
-    // }
 
     @GetMapping("/karyawan/form")
     public ModelMap tampilkanForm(@RequestParam(value = "id", required = false) Karyawan karyawan) {
