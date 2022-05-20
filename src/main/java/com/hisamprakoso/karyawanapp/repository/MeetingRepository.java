@@ -1,6 +1,6 @@
 package com.hisamprakoso.karyawanapp.repository;
 
-// import java.util.List;
+import java.util.List;
 
 import com.hisamprakoso.karyawanapp.entity.Meeting;
 // import org.springframework.data.repository.PagingAndSortingRepository;
@@ -10,12 +10,12 @@ import com.hisamprakoso.karyawanapp.entity.Meeting;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
-// public class MeetingRepository {
-//     Page<Meeting> findByNamaPage(String nama, Pageable pageable);
-// }
 @Repository
-public interface MeetingRepository extends CrudRepository<Meeting, String> {
+public interface MeetingRepository extends CrudRepository<Meeting, Integer> {
+    Meeting findById(Integer id);
 
     // Object findById(long id);
-    // List<Meeting> findByName(String nm_meeting);
+    // List<Meeting> findById(Integer id);
+
+    // List<Meeting> findByMeeting(Meeting meeting);
 }

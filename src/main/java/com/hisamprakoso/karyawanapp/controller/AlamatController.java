@@ -17,6 +17,7 @@ import org.springframework.web.servlet.ModelAndView;
 import javax.validation.Valid;
 
 import com.hisamprakoso.karyawanapp.entity.Alamat;
+import com.hisamprakoso.karyawanapp.entity.Karyawan;
 import com.hisamprakoso.karyawanapp.repository.AlamatDao;
 import com.hisamprakoso.karyawanapp.repository.KaryawanDao;
 
@@ -62,15 +63,26 @@ public class AlamatController {
     // }
 
     @GetMapping("/alamat/form")
-    public String tampilkanForms(@RequestParam(value = "id", required = false) Alamat alamat, Model m) {
+    public ModelMap tampilkanForms(@RequestParam(value = "id", required = false) Alamat alamat, Model karyawan) {
         if (alamat == null) {
             alamat = new Alamat();
         }
-        m.addAttribute("alamat", alamat);
-        m.addAttribute("karyawan", karyawanDao.findAll());
-        // return new ModelMap("alamat", alamat);
-        return "alamat/form";
+        karyawan.addAttribute("alamat", alamat);
+        karyawan.addAttribute("karyawan", karyawanDao.findAll());
+        return new ModelMap("alamat", alamat);
+        // return "alamat/form";
     }
+    // @GetMapping("/alamat/form")
+    // public String tampilkanForms(@RequestParam(value = "id", required = false)
+    // Alamat alamat, Model m) {
+    // if (alamat == null) {
+    // alamat = new Alamat();
+    // }
+    // m.addAttribute("alamat", alamat);
+    // m.addAttribute("karyawan", karyawanDao.findAll());
+    // // return new ModelMap("alamat", alamat);
+    // return "alamat/form";
+    // }
 
     // @PostMapping("/alamat/form")
     // public String simpan(@Valid @ModelAttribute("alamat") Alamat alamat,
@@ -90,25 +102,28 @@ public class AlamatController {
     // }
 
     @PostMapping("/alamat/form")
-    public String simpan(@ModelAttribute @Valid Alamat alamat, BindingResult errors,
+    public String simpan(@Valid @ModelAttribute("alamat") Alamat alamat, @ModelAttribute("karyawan") Karyawan karyawan,
+            BindingResult errors,
             SessionStatus status) {
         if (errors.hasErrors()) {
             return "alamat/form";
         }
-        Session session = HibernateUtil.createSessionFactory().openSession();
+        // Session session = HibernateUtil.createSessionFactory().openSession();
         // Session session = sessionFactory.openSession();
-        Transaction tx = session.beginTransaction();
-        Query q = session.createQuery("update alamat set nama=:n,alamat=:o,id_karyawan=:p where id=:i");
-        q.setParameter("i", alamat.getId());
-        q.setParameter("n", alamat.getNama());
-        q.setParameter("o", alamat.getAlamat());
-        q.setParameter("p", alamat.getKaryawan());
+        // Transaction tx = session.beginTransaction();
+        // Query q = session.createQuery("update alamat set
+        // nama=:n,alamat=:o,id_karyawan=:p where id=:i");
+        // q.setParameter("i", alamat.getId());
+        // q.setParameter("n", alamat.getNama());
+        // q.setParameter("o", alamat.getAlamat());
+        // q.setParameter("p", alamat.getKaryawan());
 
-        int status1 = q.executeUpdate();
-        System.out.println(status1);
-        tx.commit();
+        // int status1 = q.executeUpdate();
+        // System.out.println(status1);
+        // tx.commit();
 
-        // alamatDao.save(alamat);
+        alamatDao.save(alamat);
+        // karyawanDao.save(karyawan);
         // alamatDao.delete(alamat);
         status.setComplete();
         return "redirect:/alamat/list";

@@ -42,4 +42,7 @@ public class Karyawan {
         @OneToMany(mappedBy = "karyawan", cascade = CascadeType.REFRESH, orphanRemoval = true)
         private List<Alamat> listAlamat = new ArrayList<>();
 
+        public void addAttribute(String string, Iterable<Karyawan> findAll) {
+        }
+
 }

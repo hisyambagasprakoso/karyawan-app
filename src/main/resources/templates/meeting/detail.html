@@ -20,13 +20,13 @@
                 </div>
                 <!-- /.box-header -->
                 <!-- form start -->
-                <form role="form" th:action="@{/meeting/form}" th:object="${meeting}" method="post">
+                <form role="form" th:object="${meeting}" method="post">
                     <div class="box-body">
                         <div class="form-group col-md-6">
                             <label for="nm_meeting">Batch Name</label>
                             <input type="text"
                                    th:field="*{nm_meeting}"
-                                   name="nm_meeting" class="form-control" id="nm_meeting" placeholder="Nama" />
+                                   name="nm_meeting" class="form-control" id="nm_meeting" placeholder="Nama" disabled />
                             <label class="control-label error-label" th:if="${#fields.hasErrors('nm_meeting')}" th:errors="*{nm_meeting}">
                                 Pesan error nanti di sini
                             </label>
@@ -35,7 +35,7 @@
                             <label for="divisi">Division</label>
                             <input type="text"
                                    th:field="*{divisi}"
-                                   name="divisi" class="form-control" id="divisi" placeholder="divisi" />
+                                   name="divisi" class="form-control" id="divisi" placeholder="divisi" disabled />
                             <label class="control-label error-label" th:if="${#fields.hasErrors('divisi')}" th:errors="*{divisi}">
                                 Pesan error nanti di sini
                             </label>
@@ -44,25 +44,25 @@
                             <label for="tgl">Meeting Date</label>
                             <input type="date"
                                    th:field="*{tgl}"
-                                   name="tgl" class="form-control" id="tgl" placeholder="Tanggal" />
+                                   name="tgl" class="form-control" id="tgl" placeholder="Tanggal" disabled />
                             <label class="control-label error-label"  th:if="${#fields.hasErrors('tgl')}"th:errors="*{tgl}">
                                 Pesan error nanti di sini
                             </label>
                         </div>
                         <div class="form-group col-md-3">
                             <label for="mulai">Start</label>
-                            <input type="time"
+                            <input type="text"
                                    th:field="*{mulai}"
-                                   name="mulai" class="form-control" id="mulai" placeholder="Mulai" />
+                                   name="mulai" class="form-control" id="mulai" placeholder="Mulai" disabled />
                             <label class="control-label error-label"  th:if="${#fields.hasErrors('mulai')}"th:errors="*{mulai}">
                                 Pesan error nanti di sini
                             </label>
                         </div>
                         <div class="form-group col-md-3">
                             <label for="selesai">End</label>
-                            <input type="time"
+                            <input type="text"
                                    th:field="*{selesai}"
-                                   name="selesai" class="form-control" id="selesai" placeholder="selesai" />
+                                   name="selesai" class="form-control" id="selesai" placeholder="selesai" disabled />
                             <label class="control-label error-label"  th:if="${#fields.hasErrors('selesai')}"th:errors="*{selesai}">
                                 Pesan error nanti di sini
                             </label>
@@ -71,7 +71,7 @@
                             <label for="platform">Platform</label>
                             <input type="text"
                                    th:field="*{platform}"
-                                   name="platform" class="form-control" id="platform" placeholder="platform" />
+                                   name="platform" class="form-control" id="platform" placeholder="platform" disabled />
                             <label class="control-label error-label"  th:if="${#fields.hasErrors('platform')}"th:errors="*{platform}">
                                 Pesan error nanti di sini
                             </label>
@@ -80,7 +80,7 @@
                             <label for="link">Link</label>
                             <input type="url"
                                    th:field="*{link}"
-                                   name="link" class="form-control" id="link" placeholder="link" />
+                                   name="link" class="form-control" id="link" placeholder="link" disabled />
                             <label class="control-label error-label"  th:if="${#fields.hasErrors('link')}"th:errors="*{link}">
                                 Pesan error nanti di sini
                             </label>
@@ -89,16 +89,22 @@
                             <label for="deskripsi">Note to Employees</label>
                             <input type="text"
                                    th:field="*{deskripsi}"
-                                   name="deskripsi" class="form-control" id="deskripsi" placeholder="deskripsi" />
+                                   name="deskripsi" class="form-control" id="deskripsi" placeholder="deskripsi" disabled />
                             <label class="control-label error-label"  th:if="${#fields.hasErrors('deskripsi')}"th:errors="*{deskripsi}">
                                 Pesan error nanti di sini
                             </label>
                         </div>
                         <div class="form-group">
                             <a th:href="@{/meeting/list}" class="btn btn-default" role="button" title="Back list">
-                                <span aria-hidden="true"></span>Batal
+                                <span aria-hidden="true"></span>Back
                             </a>
-                            <button type="submit" class="box-title btn btn-primary" title="Save Data">Simpan</button>
+                            <a th:href="@{/meeting/update/{id}(id=${id})}" class="btn btn-default" role="button" title="Back list">
+                                <span aria-hidden="true"></span>Edit
+                            </a>
+                            <a th:href="@{/meeting/delete/{id}(id=${id})}" class="btn btn-default" role="button" title="Back list">
+                                <span aria-hidden="true"></span>Delete
+                            </a>
+                            <!-- <button type="submit" class="box-title btn btn-primary" title="Save Data">Simpan</button> -->
                         </div>
                     </div>
                     <!-- /.box-body -->

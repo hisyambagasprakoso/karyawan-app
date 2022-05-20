@@ -1,14 +1,14 @@
 <!--/* Thymeleaf templating engine, Each token will be replaced by their respective titles in the resulting page. */-->
 <html xmlns:th="http://www.thymeleaf.org" layout:decorate="~{layout}">
 <head>
-    <title>Meeting</title>
+    <title>Salary</title>
 </head>
 <body>
     <div layout:fragment="breadcrumb">
-        <h1>Meeting Schedule</h1>
+        <h1>Employee Salaries</h1>
         <ol class="breadcrumb">
             <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
-            <li class="active">Meeting Schedule</li>
+            <li class="active">Employee Salaries</li>
         </ol>
     </div>
     <div layout:fragment="content">
@@ -17,9 +17,9 @@
                  <div class="box box-primary">
     
                     <div class="box-header with-border">
-                        <a class="box-title btn btn-primary" th:href="@{/meeting/form}">Add Meeting</a> 
+                        <a class="box-title btn btn-primary" th:href="@{/salary/form}">Add Salary</a> 
                         <div class="box-tools"> 
-                            <form id="form" action="#" th:action="@{/meeting/list}" method="get">
+                            <form id="form" action="#" th:action="@{/salary/list}" method="get">
                                 <div class="input-group input-group-sm" style="width: 250px;">
                                     <input type="text" name="value" class="form-control pull-right"
                                            placeholder="Pencarian Berdasarkan Nama" th:if="${key} == null"/>
@@ -44,28 +44,28 @@
                             <table class="table table-bordered table-hover">
                                 <thead>
                                 <tr>
-                                    <th>No</th>
-                                    <th>Batch Name</th>
-                                    <th>Meeting Date</th>
-                                    <th>Note to Employees</th>
+                                    <th> No</th>
+                                    <th>Employee Name</th>
+                                    <th>Payroll Date</th>
+                                    <th>Total Salary</th>
                                     <th>Actions</th>
                                 </tr>
                                 </thead>
                                 <tbody>
-                                <tr th:each="st,iter : ${meeting}">
+                                <tr th:each="st,iter : ${salary}">
                                     <td th:text="${iter.count}"></td>
-                                    <td th:text="${st.nm_meeting}"></td> 
-                                    <td th:text="${st.tgl}"></td>
-                                    <td th:text="${st.deskripsi}"></td>
+                                    <td th:text="${st.karyawan.nama}"></td> 
+                                    <td th:text="${st.payroll_date}"></td>
+                                    <td th:text="${st.total_salary}"></td>
                                     <td>
-                                        <a class="btn btn-default" th:href="@{/meeting/update/{id}(id=${st.id})}"
+                                        <!-- <a class="btn btn-default" th:href="@{/meeting/update/{id}(id=${st.id})}"
                                            title="Edit Data"><span class="glyphicon glyphicon-edit"></span></a>
                                            
                                         <a class="btn btn-default" th:href="@{/meeting/delete/{id}(id=${st.id})}"
                                            title="Delete Data"><span class="glyphicon glyphicon-trash"></span></a>
 
                                         <a class="btn btn-default" th:href="@{/meeting/detail/{id}(id=${st.id})}"
-                                           title="Detail Data"><span class="glyphicon glyphicon-eye-open"></span></a>
+                                           title="Detail Data"><span class="glyphicon glyphicon-eye-open"></span></a> -->
                                     </td>
                                 </tr>
                                 <!--  <tr th:if="${#lists.isEmpty(meeting.content)}"> -->

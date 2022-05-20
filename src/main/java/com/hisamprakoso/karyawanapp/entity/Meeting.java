@@ -1,11 +1,15 @@
 package com.hisamprakoso.karyawanapp.entity;
 
+// import java.sql.Time;
+
 // import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 // import javax.persistence.Index;
 import javax.persistence.Table;
+// import javax.persistence.Temporal;
+// import javax.persistence.TemporalType;
 import javax.validation.constraints.NotNull;
 
 import org.hibernate.validator.constraints.NotEmpty;
@@ -17,7 +21,7 @@ import lombok.NoArgsConstructor;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-@Entity
+@Entity(name = "meeting")
 @Table(name = "meeting")
 public class Meeting {
 
@@ -37,5 +41,21 @@ public class Meeting {
     // @NotEmpty
     // @NotNull
     private String deskripsi;
+    @NotEmpty
+    @NotNull
+    private String divisi;
+    @NotEmpty
+    @NotNull
+    // @Temporal(TemporalType.TIMESTAMP)
+    private String mulai;
+    @NotEmpty
+    @NotNull
+    private String selesai;
+    @NotEmpty
+    @NotNull
+    private String platform;
+    @NotEmpty
+    @NotNull
+    private String link;
 
 }
